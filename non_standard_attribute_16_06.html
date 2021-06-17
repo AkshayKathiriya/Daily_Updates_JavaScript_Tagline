@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* .order[order-state="new"]{
+            color: green;
+        }
+
+        .order[order-state="pending"]{
+            color: blue;
+        }
+
+        .order[order-state="canceled"]{
+            color: red;
+        } */
+
+        /* .order[data-order-state="new"]{
+            color: green;
+        }
+
+        .order[data-order-state="pending"]{
+            color: blue;
+        }
+
+        .order[data-order-state="canceled"]{
+            color: red;
+        } */
+
+    </style>
+
+  
+</head>
+<body data-about="Elephants">
+        <!-- <div show-info="name"></div>
+        <div show-info="age"></div>
+
+        <script>
+            let user = {
+                name:"John",
+                age: 25
+            };
+
+            for(let div of document.querySelectorAll('show-info')){
+                let field = div.getAttribute('show-info');
+                div.innerHTML = user[field];
+            }
+        </script> -->
+
+          <!-- <div class="order" data-state="new">
+            A new order.
+        </div>
+    
+        <div class="order" order-state="pending">
+            A pending order.
+        </div>
+    
+        <div class="order" order-state="cancled">
+            A canceled order.
+        </div>
+
+        <script>  alert(document.body.dataset.about) 
+            alert(document.querySelector('div').dataset.state);
+        </script> -->
+
+        
+        
+        
+        
+        <!-- <div id="order" class="order" data-order-state="new">
+            A new order.
+        </div>
+    
+       <script>
+           alert(order.dataset.orderState);
+
+           order.dataset.orderState ="pending";
+       </script> -->
+
+
+       <!-- <div data-widget-name="menu">Choose the genre</div>
+
+  <script>
+      let vari = document.querySelector('[data-widget-name]');
+      alert(vari.dataset.widgetName);
+      alert(vari.getAttribute('data-widget-name'));
+  </script> -->
+
+        <a name="list">the list</a>
+        <ul>
+            <li><a href="http://google.com">http://google.com</a></li>
+            <li><a href="/tutorial">/tutorial.html</a></li>
+            <li><a href="local/path">local/path</a></li>
+            <li><a href="ftp://ftp.com/my.zip">ftp://ftp.com/my.zip</a></li>
+            <li><a href="http://nodejs.org">http://nodejs.org</a></li>
+            <li><a href="http://internal.com/test">http://internal.com/test</a></li>
+        </ul>
+
+        <script>
+            let links = document.querySelectorAll('a');
+            // link.style.color='orange';
+            for(let link of links){
+                let href = link.getAttribute('href');
+                if(!href)continue;
+
+                if(!href.includes('://'))continue;
+
+                if(href.startsWith('http://internal.com')) continue;
+
+                link.style.color = 'orange';
+
+           
+            
+        </script>
+
+
+</body>
+</html>
