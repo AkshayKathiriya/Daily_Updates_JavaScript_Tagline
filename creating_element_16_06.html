@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Document</title>
+    <style>
+        .alert {
+          padding: 15px;
+          border: 1px solid #d6e9c6;
+          border-radius: 4px;
+          color: #3c763d;
+          background-color: #dff0d8;
+        }
+        </style>
+        
+</head>
+<body>
+    
+    <!-- <div class="alert">
+        <strong>Hi there!</strong> You've read an important message.
+      </div> -->
+<!-- 
+      <script>
+        let div = document.createElement('div');
+        //   div.setAttribute('class','alert');
+
+        div.className = "alert";
+
+        div.innerHTML = "<strong>Hi there!</strong> You've read an important message.";
+
+        document.body.append(div);
+         
+        let textNode = document.createTextNode('Here I am');
+        div.append(textNode);
+      </script> -->
+
+
+      <ol id="ol">
+        <li>0</li>
+        <li>1</li>
+        <li>2</li>
+      </ol> 
+
+      <script>
+          ol.before('before');
+          ol.after('after');
+
+          let liFirst = document.createElement('li');
+          liFirst.innerHTML = 'prepend';
+          ol.prepend(liFirst);
+
+          let liLast = document.createElement('li');
+          liLast.innerHTML = 'append';
+          ol.append(liLast);
+
+      </script>
+
+</body>
+</html>
