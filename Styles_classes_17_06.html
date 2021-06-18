@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        /* body{
+            color:red;
+            margin:5px
+        } */
+    </style>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Styles and classes</title>
+</head>
+<body class="main page">
+    <script>
+        // alert(document.body.className);
+
+        //document.body.className="changed";
+
+        //alert(document.body.className);
+         
+        // document.body.classList.add('article');
+
+        // document.body.classList.remove('page');
+
+        // document.body.classList.toggle("main");
+        
+        // document.body.classList.toggle("article");
+
+        // document.body.classList.contains("main");
+
+        // alert(document.body.className);
+
+
+        // for(let name of document.body.classList){
+        //     alert(name);
+        // }
+
+        // document.body.style.backgroundColor = prompt("Enter background color.","black")
+            
+        // document.body.style.display ="none";
+
+        // setTimeout(()=> document.body.style.display = "",1000);
+    </script>
+
+
+<!-- <div id="div">Button</div> -->
+
+<script>
+    // div.style.cssText =  `color: red !important;
+    // background-color:yellow;
+    // width: 100px;
+    // text-align : center;`;
+    // alert(div.style.cssText);
+
+    // document.body.style.margin = '20px';
+    // alert(document.body.style.margin);
+
+    // alert(document.body.style.marginTop);
+
+    // alert(document.body.style.color);//empty
+
+</script>
+
+<!-- <script>
+    
+    let computedStyle = getComputedStyle(document.body);
+
+    alert(computedStyle.marginTop);
+    alert(computedStyle.color);
+</script> -->
+
+<!-- task -->
+
+
+<h2>Notification is on the right</h2>
+
+<p>
+  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum aspernatur quam ex eaque inventore quod voluptatem adipisci omnis nemo nulla fugit iste numquam ducimus cumque minima porro ea quidem maxime necessitatibus beatae labore soluta voluptatum
+  magnam consequatur sit laboriosam velit excepturi laborum sequi eos placeat et quia deleniti? Corrupti velit impedit autem et obcaecati fuga debitis nemo ratione iste veniam amet dicta hic ipsam unde cupiditate incidunt aut iure ipsum officiis soluta
+  temporibus. Tempore dicta ullam delectus numquam consectetur quisquam explicabo culpa excepturi placeat quo sequi molestias reprehenderit hic at nemo cumque voluptates quidem repellendus maiores unde earum molestiae ad.
+</p>
+
+
+    <script>
+        function showNotification({
+            top=0,
+            right=0,
+            html,
+            className
+        }){
+            
+            let notifi = document.createElement('div');
+
+            notifi.className = 'notification';
+
+            if(className){
+                notifi.classList.add(className);
+            }
+
+            notifi.style.top = top + 'px';
+            notifi.style.right = right + 'px';
+
+            notifi.innerHTML = html;
+            document.body.append(notifi);
+
+            
+            
+            setTimeout(()=>notifi.remove(),1500);
+        }
+
+       
+
+        let i=1;
+        setInterval(()=> {
+            showNotification({
+            top:10,
+            right:10,
+            html:'Hello' + i++,
+            className:"welcome"
+        });},2000);
+        
+    
+    </script>
+
+</body>
+</html>
