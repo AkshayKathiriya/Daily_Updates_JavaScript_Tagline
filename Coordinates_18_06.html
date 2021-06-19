@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        #div1{
+            border:10px solid gray;
+            width: 200px;
+            margin:auto;
+            position: absolute;
+            top: 400px;
+            
+        }
+     
+    </style>
+    <title>Document</title>
+</head>
+<body>
+    <!-- html for perform differen-differnt coordinates function -->
+    <h1>Selectors Exercise</h1>
+
+	<p>PARAGRAPH NOT INSIDE A DIV</p>	
+
+	<div>
+		<p class="hello">I am a paragraph with a class</p>
+		<p id="special">I am a paragraph with an ID</p>
+
+		<h2>I am an awesome h2</h2>
+
+		<p>
+			Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+			tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+			quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+			consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+			cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+			proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+		</p>
+	</div>
+
+	<div>
+		<h2>Things I need to do</h2>
+
+		<ul>
+			<li>Walk Dog <input type="checkbox" checked></li>
+			<li>Feed Dog <input type="checkbox" checked>
+			</li>
+			<li>Wash Dog <input type="checkbox" ></li>
+		</ul>
+	</div>
+    <button id="coords-show-mark">Button with id=“coords-show-mark”, the message will appear under it</button>
+
+	<div>
+		<h2>I am another awesome h2</h2>
+
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+		tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+		quis nostrud exercitation <em>ullamco laboris nisi ut</em> aliquip ex ea commodo
+		consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+		cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+		proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+		<p>I'm the second paragraph inside this div!</p>
+	</div>
+    <p>PARAGRAPH NOT INSIDE A DIV</p>
+
+	<div>
+		<h2>A less awesome h2</h2>
+		<p>
+			Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+			tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+			quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+			consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+			cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+			proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+		</p>
+		<p>one last paragraph here!</p>
+
+		<a href="http://www.facebook.com">I am a link to facebook</a><br>
+		<a href="http://www.facebook.com">I am another link to facebook</a>
+		<br>
+		<input type="text" name="name"/><label>Name</label><br>
+		<input type="password" name="password" /><label>Password</label>
+	</div>
+
+	<p>PARAGRAPH NOT INSIDE A DIV</p>	
+    <button onclick="showRect(this)" value="Get coordinates using button.getBoundingClientRect()for this button">Get coordinates using button.getBoundingClientRect()for this button</button>
+    <br><br><br>
+
+
+
+    <script>
+        // alert(special.getBoundingClientRect().top);
+		function showRect(elem){
+			let r = elem.getBoundingClientRect();
+			alert(`x:${r.x}
+            y:${r.y}
+			width:${r.width}
+			height:${r.height}
+			top:${r.top}
+			bottom:${r.bottom}
+			left:${r.left}
+			right:${r.right}`
+			);
+
+		}
+
+
+        // let centerX = document.documentElement.clientWidth/2;
+        // let centerY = document.documentElement.clientHeight/2;
+
+        // let elem =document.elementFromPoint(centerX,centerY);
+
+        // elem.style.background = "red";
+        // alert(elem.tagName);
+        // let x=1100; 
+        // let y=1100;
+        // elem = document.elementFromPoint(x,y);
+
+        // elem.style.background = '';
+
+
+
+        // let elem = document.getElementById("coords-show-mark");
+
+        // function createMessageUnder(elem, html) {
+
+        //     let message = document.createElement('div');
+
+        //     message.style.cssText = "position:fixed ; color: red";
+
+        //     let coords = elem.getBoundingClientRect();
+        //     message.style.left = coords.left + "px";
+        //     message.style.top = coords.bottom + "px";
+
+        //     message.innerHTML = html;
+        //     return message;
+        // }
+
+        // let message = createMessageUnder(elem, 'Hello, world!');
+        // document.body.append(message);
+        // setTimeout(()=> message.remove(),5000);        
+        
+
+        function getCoords(elem){
+            let box = elem.getBoundingClientRect();
+
+            return {
+                top : box.top + window.pageYOffset,
+                right : box.right + window.pageXOffset,
+                bottom : box.bottom + window.pageYOffset,
+                left: box.left + window.pageXOffset           };
+        }
+	</script>
+</body>
+</html>

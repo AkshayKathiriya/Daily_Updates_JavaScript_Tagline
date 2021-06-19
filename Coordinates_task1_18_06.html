@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   
+  <script>
+    document.onclick = function(e) { // shows click coordinates
+      coords.innerHTML = e.clientX + ':' + e.clientY;
+    };
+  </script>
+   <style>
+    #field {
+      width: 200px;
+      border: 10px groove black;
+      background-color: #00FF00;
+      position: relative;
+    }
+
+   
+    
+  </style>
+    <title>Task1</title>
+</head>
+<body>
+    Click anywhere to get window coordinates.
+    <br> That's for testing, to check the result you get by JavaScript.
+    <br>
+    <div id="coords">(click coordinates show up here)</div>
+  
+  
+    <div id="field">
+      . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+      . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    </div>
+  
+  
+    <!-- <div class="triangle-right" style="left:-20px;top:-176px">1</div>
+    <div class="triangle-right" style="left:-10px;top:-178px">3</div>
+    <div class="triangle-right" style="left:190px;top:-40px">4</div>
+    <div class="triangle-right" style="left:200px;top:-42px">2</div>
+   -->
+  
+    <script>
+
+// Your code should use DOM to get window coordinates of:
+// Upper-left, outer corner (that’s simple).
+// Bottom-right, outer corner (simple too).
+// Upper-left, inner corner (a bit harder).
+// Bottom-right, inner corner (there are several ways, choose one).
+
+
+alert(field.getBoundingClientRect().top);
+
+alert(field.getBoundingClientRect().left);
+
+
+
+let right = field.getBoundingClientRect().left + field.getBoundingClientRect().width;
+
+let bottom = field.getBoundingClientRect().top + field.getBoundingClientRect().height;
+
+alert(right + ":" + bottom);
+
+
+let cright = field.offsetTop + field.clientTop;
+
+let cleft = field.offsetLeft + field.clientLeft;
+
+alert(cleft + ":" + cright);
+
+
+
+let cright = field.getBoundingClientRect().bottom - field.clientTop;
+
+let cleft = field.getBoundingClientRect().right - field.clientLeft;
+
+alert(cleft + ":" + cright);
+
+
+let coords = elem.getBoundingClientRect();
+
+let answer1 = [coords.left, coords.top];
+let answer2 = [coords.right, coords.bottom];
+
+let coords = field.getBoundingClientRect();
+
+let answer1 = [coords.left, coords.top];
+let answer2 = [coords.right, coords.bottom];
+
+alert(answer1);
+
+alert(answer2);
+
+let answer3 = [coords.left + field.clientLeft, coords.top + field.clientTop];
+
+alert(answer3);
+
+let answer4 = [
+  coords.right - parseInt(getComputedStyle(field).borderRightWidth),
+  coords.bottom - parseInt(getComputedStyle(field).borderBottomWidth)
+];
+
+alert(answer4);
+    </script>
+</body>
+</html>
