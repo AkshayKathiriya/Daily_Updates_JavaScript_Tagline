@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Browser Events</title>
+</head>
+<body>
+        <!-- Event Object -->
+        <!-- <input type="button" onclick="alert(event.type)" value="Event type"> -->
+
+        <!-- <button id="elem">Click Me</button> -->
+        <script>
+            //Object
+            // let obj ={
+            //     handleEvent(event){
+            //         alert(event.type + " at " + event.currentTarget);
+            //     }
+            // };
+
+            //class
+            // class obj{
+            //     // handleEvent(event){
+            //     //     alert(event.type + " at " + event.currentTarget);
+            //       handleEvent(event) {
+            //           switch(event.type){
+            //               case 'mousedown':
+            //                   elem.innerHTML = "Mouse button pressed";
+            //                   break;
+            //               case 'mouseup':
+            //                   elem.append("...and relesed.");
+            //                   break;  
+            //           }
+            //       }  
+            // };
+
+            // let objec  = new obj();
+            // elem.addEventListener('mousedown',objec);
+            // elem.addEventListener('mouseup',objec);
+
+        </script>
+
+        <!-- <script>
+            class Menu {
+                handleEvent(event){
+                    let method = 'on'+ event.type[0].toUpperCase() + event.type.slice(1);
+                    this[method](event);
+                }
+
+                onMousedown() {
+                    elem.innerHTML = "Mouse button pressed";
+                }
+
+                onMouseup() {
+                    elem.innerHTML += "...and released.";
+                }
+            }
+
+            let menu = new Menu();
+            elem.addEventListener('mousedown', menu);
+            elem.addEventListener('mouseup', menu);
+
+        </script> -->
+
+        <!-- Task1 -->
+<!-- 
+        <button id="elem">Click to hide the text</button>
+
+        <div id="text">Text</div>
+
+        <script>
+            elem.onclick = function () {
+                // text.style.display = "none";
+                document.getElementById('text').hidden = "true";
+            }
+        </script> -->
+
+        <!-- Task 2 -->
+
+            <!-- <input type="button" value="Click to hide" id="hide" onclick="this.hidden = true"> -->
+
+           <!-- Task3 -->
+           <!-- <button id="button">Click</button>
+           <script>
+                button.addEventListener("click", () => alert("1"));
+
+                button.removeEventListener("click", () => alert("1"));
+
+                button.onclick = () => alert(2);
+                //1,2
+           </script> -->
+
+           
+
+</body>
+</html>
