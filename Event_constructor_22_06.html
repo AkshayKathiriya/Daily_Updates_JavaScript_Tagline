@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event constructor</title>
+</head>
+<body>
+
+    <!-- <button id="elem" onclick="alert('Click!');">Autoclick</button>
+    <script>
+        let event = new Event("click");
+        elem.dispatchEvent(event);
+    </script> -->
+
+<!-- 
+    <h1 id="elem">Hello from the script!</h1>
+
+    <script>
+        document.addEventListener("hello", function(event) {
+            alert("Hello from "+event.target.tagName);
+            
+        });
+
+        let event = new Event("hello", {bubbles : true});
+        elem.dispatchEvent(event);
+        
+    </script> -->
+
+
+
+
+    <script>
+        // let event = new MouseEvent('click',{
+        //     bubbles:true,
+        //     cancelable: true,
+        //     clientX: 100,
+        //     clientY : 100
+        // });
+
+        // alert(event.clientX);
+
+        
+        // let event = new Event('click',{
+        //     bubbles:true,
+        //     cancelable: true,
+        //     clientX: 100,
+        //     clientY : 100
+        // });
+
+        // alert(event.clientX);
+    </script>
+
+
+
+    <!-- <h1 id="elem">Hello for john!</h1>
+    <script>
+        elem.addEventListener('hello', function(event){
+            alert(event.detail.name);
+        });
+
+        elem.dispatchEvent(new CustomEvent("hello", {
+            detail:{
+                name:"john"
+            }
+        }));
+    </script> -->
+
+
+    <!-- <pre id="rabbit">
+         |\   /|
+          \|_|/
+          /. .\
+         =\_Y_/=
+          {>o<}
+    </pre>
+    <button onclick="hide()">Hide()</button>
+
+    <script>
+        function hide() {
+            let event = new CustomEvent("hide", {
+                cancelable: true
+            });
+            if(!rabbit.dispatchEvent(event)){
+                rabbit.hidden = true;
+            }else {
+                alert('The action was prevented  by a handler');
+            }
+        }
+
+        rabbit.addEventListener('hide', function(event) {
+            if(confirm("Call preventDefault?")) {
+                event.preventDefault();
+            }
+        });
+    </script> -->
+
+
+
+    <button id="menu">Menu (click me)</button>
+    <script>
+        menu.onclick = function(){
+            alert(1);
+
+            menu.dispatchEvent(new CustomEvent('menu-open',{
+                bubbles:true
+            }));
+
+            alert(2);
+        }
+
+        menu.addEventListener('menu-open', ()=>alert('nested'));
+    </script>
+
+</body>
+</html>
