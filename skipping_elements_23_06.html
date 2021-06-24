@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <style>
+        #parent {
+            position: relative;
+            height: 120px;
+            width: 160px;
+            background: aquamarine;
+        }
+
+        #child {
+            position: absolute;
+            height: 50%;
+            width: 50%;
+            left: 50%;
+            top: 50%;
+            background: bisque;
+            transform: translate(-50%, -50%);
+        }
+
+        textarea {
+            height: 140px;
+            width: 300px;
+            display: block;
+        }
+    </style>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skipping Element</title>
+</head>
+
+<body>
+    <!-- <div id="parent">parent
+        <div id="child">child</div>
+    </div> -->
+
+    <div id="parent" onmouseover="mouselog(event)" onmouseout="mouselog(event)">parent
+        <div id="child">child</div>
+    </div>
+
+    <textarea name="" id="text" cols="30" rows="10"></textarea><br>
+
+    <input type="button" onclick="clearText()" value="Clear">
+
+
+    <script>
+        function mouselog(event) {
+            let d = new Date();
+            text.value += `${d.getHours()}:${d.getMinutes()}:${d.getSeconds()} | ${event.type} [target: ${event.target.id}]\n`.replace(/(:|^)(\d\D)/, '$10$2');
+            text.scrollTop = text.scrollHeight;
+        }
+    </script>
+
+
+    <!-- <script>
+        let parent = document.getElementById('parent');
+        parent.onmouseover = parent.onmouseout = parent.onmousemove = handler;
+
+
+        function handler(event) {
+            let type = event.type;
+        
+            while (type < 11) type += ' ';
+
+            log(type + " target=" + event.target.id)
+            return false;
+
+        }
+
+        function clearText() {
+            text.value = '';
+            lastMessage = '';
+        }
+
+
+       
+        let lastMessageTime = 0;
+        let lastMessage = "";
+        let repeatCounter = 1;
+
+        function log(message) {
+            if (lastMessageTime == 0) lastMessageTime = new Date();
+
+            let time = new Date();
+
+            if (time - lastMessageTime > 500) {
+                message = '------------------------------\n' + message;
+            }
+
+            if (message === lastMessage) {
+                repeatCounter++;
+                if (repeatCounter == 2) {
+                    text.value = text.value.trim() + ' x 2\n';
+                } else {
+                    text.value = text.value.slice(0, text.value.lastIndexOf('x') + 1) + repeatCounter + "\n";
+                }
+
+            } else {
+                repeatCounter = 1;
+                text.value += message + "\n";
+            }
+
+            text.scrollTop = text.scrollHeight;
+            lastMessageTime = time;
+            lastMessage = message;
+        }
+    </script> -->
+
+
+
+</body>
+
+</html>

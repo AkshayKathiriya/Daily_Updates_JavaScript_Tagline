@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        .selected {
+            background-color: yellowgreen;
+        }
+        li {
+            cursor: pointer;
+        }
+    </style>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modifiers</title>
+</head>
+<body>
+    <!-- <button id="button"> Alt+shift+click on me!</button>
+
+    <script>
+        button.onclick = function(event) {
+            if( event.altKey && event.shiftKey ){
+                alert("hooray!");
+            }
+        };
+    </script> -->
+
+
+
+    <!-- <input type="text" onmousemove="this.value = event.clientX + ':' +event.clientY" value="Mouse over me"> -->
+
+
+
+        <!-- <span ondblclick="alert('dbclick')" onmousedown="return false">Double-click me</span> -->
+        
+        <!-- <button onmousedown="alert('mousedown')" >mousedown</button>
+        <button onmouseup="alert('mouseup')" >mouseup</button>
+        <button onmouseover="alert('mouseover')" >mouseover</button>
+        <button onmouseout="alert('mouseout')" >mouseout</button>
+        <button onmousemove="alert('mousemove')" >mousemove</button>
+        <button onclick="alert('click')" >click</button>
+        <button ondblclick="alert('Double click')" >DoubleClick</button>
+        <button oncontextmenu="alert('contextmenu')" >contextmenu</button> -->
+
+
+
+
+        <!-- <div oncopy="alert('copying forbidden'); return false">
+                Dear user,
+                The copying is forbidden for you.
+                If you know JS or HTM, then you can get everything from the page source though.
+        </div>     -->
+
+</script>
+
+
+
+ <!-- task-1 -->
+
+ <p>Click on a list item to select it.</p>
+
+ <ul id="ul">
+     <li>Christopher Robin</li>
+     <li>Winnie-the-Pooh</li>
+     <li>tigger</li>
+     <li>Kanga</li>
+     <li>Rabbit. Just rabbit.</li>
+ </ul>
+
+        <!-- <script>
+
+            ul.onclick = function(event) {
+
+            if(event.target.tagName != 'LI') return;
+
+            if(event.ctrlKey || event.metaKey) {
+                toggleSelect(event.target);
+            }else{
+                singleSelect(event.target);
+            }
+        }
+
+        ul.onmousedown = function(){
+            return false;
+        }
+
+        function toggleSelect(li){
+            li.classList.toggle('selected');
+        }
+
+        function singleSelect(li){
+            let selected = ul.querySelectorAll('.selected');
+            for(let elem of selected){
+                elem.classList.remove('selected');
+            }
+            li.classList.add('selected');
+        }
+        </script> -->
+    
+</body>
+</html>
