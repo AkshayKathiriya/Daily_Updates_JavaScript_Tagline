@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <style>
+        div {
+            width: 50px;
+            height: 50px;
+            position: absolute;
+            top: 0;
+        }
+
+        #gate {
+            cursor: pointer;
+            margin-bottom: 100px;
+            width: 83px;
+            height: 46px;
+        }
+
+        #ball {
+            cursor: pointer;
+            width: 40px;
+            height: 40px;
+        }
+    </style>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drag'n Drop</title>
+</head>
+
+<body>
+  
+    <p>Drag the ball.</p>
+
+    <img src="https://en.js.cx/clipart/soccer-gate.svg" id="gate" class="droppable">
+  
+    <img src="ball.svg" alt="Ball is here" id="ball">
+
+    <!-- <script>
+
+        let currentDroppable = null;
+        ball.onmousedown = function (event) {
+
+            ball.style.position = 'absolute';
+            ball.style.zIndex = 1000;
+            let shiftX = event.clientX - ball.getBoundingClientRect().left;
+            let shiftY = event.clientY - ball.getBoundingClientRect().top;
+            document.body.append(ball);
+
+            function moveAt(pageX, pageY) {
+
+                ball.style.left = pageX - shiftX + 'px';
+                ball.style.top = pageY - shiftY + 'px';
+            }
+
+            moveAt(event.pageX, event.pageY);
+
+            function onMouseMove(event) {
+                moveAt(event.pageX, event.pageY);
+
+                ball.hidden = true;
+                let elemBelow = document.elementFromPoint(event.clientX, event.clientY);
+                ball.hidden = false;
+
+                if (!elemBelow) return;
+
+                let droppableBelow = elemBelow.closest('.droppable');
+
+                if (currentDroppable != droppableBelow) {
+
+
+                    if (currentDroppable) {
+                        leaveDroppable(currentDroppable);
+
+                    }
+
+                    currentDroppable = droppableBelow;
+                    if (currentDroppable) {
+                        enterDroppable(currentDroppable);
+                    }
+                }
+            }
+
+            document.addEventListener('mousemove', onMouseMove);
+
+            ball.onmouseup = function () {
+                document.removeEventListener('mousemove', onMouseMove);
+                ball.onmouseup = null;
+            };
+
+        };
+
+        function enterDroppable(elem){
+            elem.style.background = 'pink';
+        }
+
+        function leaveDroppable(elem){
+            elem.style.background = '';
+
+        }
+        ball.ondragstart = function () {
+            return false;
+        };
+    </script> -->
+
+
+    <!-- <div style="background:blue" ></div>
+    <div style="background:red" id="div"></div>
+
+    <script>
+        let clientX = div.getBoundingClientRect().left;
+        let clientY = div.getBoundingClientRect().top;
+
+        alert(document.elementFromPoint(clientX, clientY).style.background);
+    </script> -->
+
+
+
+    
+  <script>
+    let currentDroppable = null;
+
+    ball.onmousedown = function(event) {
+
+      let shiftX = event.clientX - ball.getBoundingClientRect().left;
+      let shiftY = event.clientY - ball.getBoundingClientRect().top;
+
+      ball.style.position = 'absolute';
+      ball.style.zIndex = 1000;
+      document.body.append(ball);
+
+      moveAt(event.pageX, event.pageY);
+
+      function moveAt(pageX, pageY) {
+        ball.style.left = pageX - shiftX + 'px';
+        ball.style.top = pageY - shiftY + 'px';
+      }
+
+      function onMouseMove(event) {
+        moveAt(event.pageX, event.pageY);
+
+        ball.hidden = true;
+        let elemBelow = document.elementFromPoint(event.clientX, event.clientY);
+        ball.hidden = false;
+
+        if (!elemBelow) return;
+
+        let droppableBelow = elemBelow.closest('.droppable');
+        if (currentDroppable != droppableBelow) {
+          if (currentDroppable) { // null when we were not over a droppable before this event
+            leaveDroppable(currentDroppable);
+          }
+          currentDroppable = droppableBelow;
+          if (currentDroppable) { // null if we're not coming over a droppable now
+            // (maybe just left the droppable)
+            enterDroppable(currentDroppable);
+          }
+        }
+      }
+
+      document.addEventListener('mousemove', onMouseMove);
+
+      ball.onmouseup = function() {
+        document.removeEventListener('mousemove', onMouseMove);
+        ball.onmouseup = null;
+      };
+
+    };
+
+    function enterDroppable(elem) {
+      elem.style.background = 'pink';
+    }
+
+    function leaveDroppable(elem) {
+      elem.style.background = '';
+    }
+
+    ball.ondragstart = function() {
+      return false;
+    };
+  </script>
+</body>
+
+</html>
