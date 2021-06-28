@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <style>
+        #kinput {
+            font-size: 150%;
+            box-sizing: border-box;
+            width: 95%;
+        }
+
+        #area {
+            width: 95%;
+            box-sizing: border-box;
+            height: 250px;
+            border: 1px solid black;
+            display: block;
+        }
+
+        form label {
+            display: inline;
+            white-space: nowrap;
+        }
+    </style>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teststand</title>
+</head>
+
+<body>
+    <form onsubmit="return flase" id="form">
+        Prevent default for:
+
+        <label for="">
+            <input type="checkbox" name="keydownStop" value="1"> keydown</label>&nbsp;&nbsp;
+        <label>
+            <input type="checkbox" name="keyupStop" value="1"> keyup
+        </label>
+
+        <p>
+            Ignore:
+            <label type="checkbox" name="keydownIgnore" value="1"> keydown</label>&nbsp;&nbsp;
+            <label>
+                <input type="checkbox" name="keyupIgnore" value="1"> keyup</label>
+        </p>
+
+        <p>Focus on the input field and press a key.</p>
+
+        <input type="text" placeholder="Press keys here" id="kinput">
+
+        <textarea id="area"></textarea>
+        <input type="button" value="Clear" onclick="area.value = ''" />
+    </form>
+
+    <script>
+       
+        kinput.onkeydown = kinput.onkeyup = kinput.onkeypress = handle;
+
+        let lastTime = Date.now();
+
+        function handle(e) {
+            
+            if (form.elements[e.type + 'Ignore'].checked) return;
+
+            let text = e.type + ' key=' + e.key + ' code=' + e.code +
+                (e.shiftKey ? ' shiftKey' : '') +
+                (e.ctrlKey ? ' ctrlKey' : '') +
+                (e.altKey ? 'altKey' : '') +
+                (e.metaKey ? ' metaKey' : '') +
+                (e.repeat ? ' (repeat)' : '') +
+                "\n";
+
+            if (area.vlaue && Date.now() - lastTime > 250) {
+                area.value += new Array(81).join('-') + '\n';
+            }
+
+            lastTime = Date.now();
+
+            area.value += text;
+            if (form.elements[e.type + 'Stop'].checked) {
+                e.preventDefault();
+            }
+        }
+
+    </script>
+
+
+</body>
+
+</html>
