@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>
+		
+	</title>
+</head>
+<body>
+
+	<script type="text/javascript">
+		let user = {
+			name:"John"
+		};
+
+		let descriptor = Object.getOwnPropertyDescriptor(user,'name');
+
+		alert(JSON.stringify(descriptor,null,2));
+
+	</script>
+
+</body>
+</html>
